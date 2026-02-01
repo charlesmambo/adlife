@@ -1,15 +1,16 @@
-import './App.css'
+import "./App.css";
+import Footer from "./components/footer/Footer";
+import Navbar from "./components/navbar/Navbar";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="coming-soon">
-      <p className="brand">adlife 🌱</p>
-      <h2>Coming Soon...</h2>
-      <p className="tagline">
-        Plant-powered living. Kind to you. Kind to the planet.
-      </p>
-    </div>
-  )
+    <>
+      <Navbar />
+      <Home />
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

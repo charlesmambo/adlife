@@ -1,0 +1,166 @@
+.hero-content h1 {
+  font-size: 3.4rem;
+}
+.hero-content p {
+  font-size: 1.4rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 50vw;
+}
+
+header {
+  background-color: var(--orange-opacity);
+  height: 84vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
+  margin: 3rem 0;
+}
+
+.abt-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.5rem;
+  margin-top: 2rem;
+}
+
+.abt-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.abt-content p {
+  font-size: 1.08rem;
+}
+
+.abt-content img {
+  width: 100%;
+  height: 400px;
+}
+
+.contact-us {
+  background-color: var(--orange-opacity);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-us h2 {
+  text-align: center;
+}
+.contact-us p {
+  text-align: center;
+  margin-top: 0.7rem;
+  width: 45vw;
+  font-size: 1.08rem;
+}
+
+form {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+  width: 100%;
+}
+.form-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.form-control input,
+.form-control textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  outline: none;
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.form-control textarea {
+  font-family: inherit;
+  min-height: 170px;
+  width: 100%;
+}
+
+.ctc-btn {
+  width: 100%;
+}
+
+.local {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem !important;
+}
+
+.bs-hours {
+  width: 50%;
+  border-top: 2px solid var(--border);
+  padding-top: 2rem;
+}
+.days {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.bs-hours h3 {
+  color: var(--black);
+}
+.bs-hours p {
+  color: var(--black);
+  text-align: left;
+}
+.socials {
+  margin-top: 2.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  border-top: 2px solid var(--border);
+  padding-top: 2rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.social-icon span {
+  font-size: 1.8rem;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+.ctc-icon {
+  font-size: 1.4rem;
+  color: var(--orange);
+  cursor: pointer;
+}
