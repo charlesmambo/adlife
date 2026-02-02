@@ -48,6 +48,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@media only screen and (max-width: 600px) {
+  .navbar-container {
+    padding: 1rem 1.7rem;
+  }
+  .container {
+    padding: 1.7rem 1.7rem;
+  }
+  .abt-content {
+    flex-direction: column;
+    gap: 1.8rem !important;
+  }
+}
 /* Desktop styles */
 @media (min-width: 1624px) {
   .navbar-container {

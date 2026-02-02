@@ -7,6 +7,7 @@ nav {
   justify-content: space-between;
   border-bottom: 2px solid #ff4d070e;
   padding: 1rem 4rem;
+  position: relative;
 }
 
 nav ul {
@@ -54,4 +55,53 @@ nav ul li a:hover::after {
 
 .global-btn:hover {
   background-color: var(--dark-orange);
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 13rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 1.6rem;
+  border-radius: 0.3rem;
+  width: 88vw;
+  display: none;
+}
+.mobile-nav.open {
+  display: block;
+}
+
+.mobile-links {
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-bottom: 1.4rem;
+}
+.close-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  font-size: 1.8rem;
+  color: rgb(219, 0, 0);
+  cursor: pointer;
+}
+.harmburger {
+  display: none;
+}
+.harmburger-icon {
+  font-size: 2.2rem;
+  color: var(--orange);
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+  .logo {
+    width: 50px;
+  }
+  .harmburger {
+    display: block;
+  }
 }

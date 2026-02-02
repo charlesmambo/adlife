@@ -96,7 +96,7 @@ const Home = () => {
             </p>
             <img src={aboutImg} alt="About Us" />
           </div>
-          <div className="abt-content">
+          <div className="abt-content abt-content-reverse">
             <img src={aboutImg2} alt="About Us" />
             <p>
               We stand for food that fuels your body, respects life, and
