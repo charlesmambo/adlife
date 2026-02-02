@@ -43,3 +43,17 @@ p {
 .container {
   padding: 5rem 7rem;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desktop styles */
+@media (min-width: 1624px) {
+  .navbar-container {
+    padding: 1rem 16rem;
+  }
+  .container {
+    padding: 5rem 16rem;
+  }
+}

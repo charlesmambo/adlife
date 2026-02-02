@@ -71,7 +71,7 @@ form {
   width: 100%;
 }
 .form-content {
-  width: 100%;
+  width: 43vw;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -121,9 +121,10 @@ label {
 }
 
 .bs-hours {
-  width: 50%;
+  width: 43vw;
   border-top: 2px solid var(--border);
   padding-top: 2rem;
+  box-sizing: border-box;
 }
 .days {
   margin-top: 1.4rem;
@@ -163,4 +164,34 @@ label {
   font-size: 1.4rem;
   color: var(--orange);
   cursor: pointer;
+}
+.form-check {
+  width: 100% !important;
+  box-sizing: border-box;
+  text-align: left !important;
+  margin-top: -1rem !important;
+}
+
+/* Desktop styles */
+@media (min-width: 1624px) {
+  .hero-img img {
+    width: 28vw;
+  }
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+  header {
+    background-color: var(--orange-opacity);
+    height: 84vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 43vw;
+  }
 }

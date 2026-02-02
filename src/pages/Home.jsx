@@ -1,4 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import "./Home.css";
 import heroImage from "../assets/hero-img.png";
 import aboutImg from "../assets/abt-left.png";
@@ -9,11 +12,60 @@ import { AiFillTikTok } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdContactPhone } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !message) {
+      setStatus("error");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      return;
+    }
+
+    // If everything is valid
+    setStatus("success");
+
+    // Here you can send the form data to your API or backend
+    console.log({ name, email, message });
+
+    // Optional: reset form after success
+    setName("");
+    setEmail("");
+    setMessage("");
+
+    // Hide success message after 3 seconds
+    setTimeout(() => setStatus(""), 3000);
+  };
+  useEffect(() => {
+    if (location.pathname === "/about") {
+      document.getElementById("about")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+
+    if (location.pathname === "/contact") {
+      document.getElementById("contact")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [location.pathname]);
   return (
     <section className="home-container">
-      <header className="container">
+      <header className="container" id="home">
         <div className="hero-content">
           <h1>Discover the Delicious Side of Vegan</h1>
           <p>
@@ -21,14 +73,16 @@ const Home = () => {
             collection of mouth-watering vegan recipes that prove healthy eating
             never tasted so good.
           </p>
-          <button className="global-btn">Learn More</button>
+          <Link to="/about">
+            <button className="global-btn">Learn More</button>
+          </Link>
         </div>
         <div className="hero-img">
           <img src={heroImage} alt="Hero Image" />
         </div>
       </header>
 
-      <main className="container">
+      <main className="container" id="about">
         <h2>About Us</h2>
         <div className="abt-wrapper">
           <div className="abt-content">
@@ -56,33 +110,60 @@ const Home = () => {
         </div>
       </main>
 
-      <div className="container contact-us">
+      <div className="container contact-us" id="contact">
         <h2>Contact Us</h2>
         <p>
           We’d love to hear from you! Whether you have a question, special
           request, or just want to say hi, our team is here to help.
         </p>
 
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div className="form-content">
             <div className="form-control">
-              <label htmlFor="">Name</label>
-              <input type="text" placeholder="Your full name" />
+              <label>Name</label>
+              <input
+                type="text"
+                placeholder="Your full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
+
             <div className="form-control">
-              <label htmlFor="">Email Address</label>
-              <input type="email" placeholder="Your email address" />
+              <label>Email Address</label>
+              <input
+                type="email"
+                placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
+
             <div className="form-control">
-              <label htmlFor="">Message</label>
+              <label>Message</label>
               <textarea
                 placeholder="Tell us how we can help"
                 rows="5"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
+
             <button className="global-btn ctc-btn" type="submit">
               Send message
             </button>
+
+            {/* Feedback messages */}
+            {status === "error" && (
+              <p style={{ color: "red" }} className="form-check">
+                Please fill all fields correctly.
+              </p>
+            )}
+            {status === "success" && (
+              <p style={{ color: "green" }} className="form-check">
+                Message sent successfully!
+              </p>
+            )}
           </div>
 
           <div className="bs-hours">
