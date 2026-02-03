@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./Home.css";
 import heroImage from "../assets/hero-img.png";
+// import heroImage from "../assets/hr-img.png";
 import aboutImg from "../assets/abt-left.png";
 import aboutImg2 from "../assets/abt-right.png";
 import { RiInstagramFill } from "react-icons/ri";
@@ -50,6 +51,22 @@ const Home = () => {
     // Hide success message after 3 seconds
     setTimeout(() => setStatus(""), 3000);
   };
+
+  // fetch("https://yourdomain.co.za/contact", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({ name, email, message }),
+  // })
+  //   .then((res) => {
+  //     if (!res.ok) throw new Error("Failed");
+  //     setStatus("success");
+  //     setName("");
+  //     setEmail("");
+  //     setMessage("");
+  //     setTimeout(() => setStatus(""), 3000);
+  //   })
+  //   .catch(() => setStatus("error"));
+
   useEffect(() => {
     if (location.pathname === "/about") {
       document.getElementById("about")?.scrollIntoView({
@@ -78,7 +95,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="hero-img">
-          <img src={heroImage} alt="Hero Image" />
+          <img src={heroImage} alt="Hero Image" className="test" />
         </div>
       </header>
 
@@ -117,7 +134,10 @@ const Home = () => {
           request, or just want to say hi, our team is here to help.
         </p>
 
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={handleSubmit}
+          action="mailto:customercare@adlifesoy.co.za"
+        >
           <div className="form-content">
             <div className="form-control">
               <label>Name</label>
