@@ -42,7 +42,8 @@ main {
 
 .abt-content img {
   width: 100%;
-  height: 400px;
+  height: auto;
+  object-fit: cover;
 }
 
 .contact-us {
@@ -212,7 +213,8 @@ label {
   }
   .abt-content img {
     width: 100%;
-    height: 260px;
+    height: auto;
+    object-fit: cover;
   }
   .abt-content-reverse {
     flex-direction: column-reverse !important;
