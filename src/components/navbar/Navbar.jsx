@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className="navbar-container">
       {/* Logo */}
       <Link to="/">
-        <img src={logo} alt="adlife logo" className="logo" />
+        <img src={logo} alt="adlife logo" className="logo" loading="lazy" />
       </Link>
 
       {/* Desktop Links */}

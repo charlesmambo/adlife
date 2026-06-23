@@ -14,7 +14,7 @@ const Footer = () => {
         {/* Logo */}
         <div className="footer-logo">
           <Link to="/">
-            <img src={logo} alt="adlife logo" className="logo" />
+            <img src={logo} alt="adlife logo" className="logo" loading="lazy" />
           </Link>
           <p>
             Discover the Delicious <br /> Side of Vegan

@@ -95,7 +95,12 @@ const Home = () => {
           </Link>
         </div>
         <div className="hero-img">
-          <img src={heroImage} alt="Hero Image" className="test" />
+          <img
+            src={heroImage}
+            alt="Hero Image"
+            className="test"
+            loading="lazy"
+          />
         </div>
       </header>
 
@@ -111,10 +116,10 @@ const Home = () => {
               more than just a food brand we’re part of a movement towards a
               kinder, healthier future.
             </p>
-            <img src={aboutImg} alt="About Us" />
+            <img src={aboutImg} alt="About Us" loading="lazy" />
           </div>
           <div className="abt-content abt-content-reverse">
-            <img src={aboutImg2} alt="About Us" />
+            <img src={aboutImg2} alt="About Us" loading="lazy" />
             <p>
               We stand for food that fuels your body, respects life, and
               supports the planet. Our journey started with a bold idea: create
