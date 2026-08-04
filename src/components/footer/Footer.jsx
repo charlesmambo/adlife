@@ -3,7 +3,6 @@ import "./Footer.css";
 import logo from "../../assets/adlife-logo.svg";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdContactPhone, MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,9 +12,9 @@ const Footer = () => {
       <div className="footer-content">
         {/* Logo */}
         <div className="footer-logo">
-          <Link to="/">
+          <a href="#home">
             <img src={logo} alt="adlife logo" className="logo" loading="lazy" />
-          </Link>
+          </a>
           <p>
             Discover the Delicious <br /> Side of Vegan
           </p>
@@ -26,10 +25,10 @@ const Footer = () => {
           <p>Navigation</p>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <a href="#home">Home</a>
             </li>
             <li>
-              <Link to="/about">About Us</Link>
+              <a href="#about">About Us</a>
             </li>
           </ul>
         </div>

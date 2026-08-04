@@ -1,6 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./Home.css";
 import heroImage from "../assets/hero-img.png";
@@ -13,73 +11,46 @@ import { AiFillTikTok } from "react-icons/ai";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdContactPhone } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
 
 const Home = () => {
-  const location = useLocation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setStatus("");
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name || !email || !message) {
+    if (!name.trim() || !emailRegex.test(email.trim()) || !message.trim()) {
       setStatus("error");
       return;
     }
 
-    if (!emailRegex.test(email)) {
-      setStatus("error");
-      return;
-    }
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      message: message.trim(),
+    };
+    const subject = encodeURIComponent(`Website enquiry from ${payload.name}`);
+    const body = encodeURIComponent(
+      `Name: ${payload.name}\nEmail: ${payload.email}\n\nMessage:\n${payload.message}`
+    );
 
-    // If everything is valid
+    window.location.href = `mailto:customercare@adlifesoy.co.za?subject=${subject}&body=${body}`;
     setStatus("success");
-
-    // Here you can send the form data to your API or backend
-    console.log({ name, email, message });
-
-    // Optional: reset form after success
     setName("");
     setEmail("");
     setMessage("");
 
-    // Hide success message after 3 seconds
-    setTimeout(() => setStatus(""), 3000);
+    setTimeout(() => {
+      setStatus("");
+    }, 3000);
   };
 
-  // fetch("https://yourdomain.co.za/contact", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({ name, email, message }),
-  // })
-  //   .then((res) => {
-  //     if (!res.ok) throw new Error("Failed");
-  //     setStatus("success");
-  //     setName("");
-  //     setEmail("");
-  //     setMessage("");
-  //     setTimeout(() => setStatus(""), 3000);
-  //   })
-  //   .catch(() => setStatus("error"));
 
-  useEffect(() => {
-    if (location.pathname === "/about") {
-      document.getElementById("about")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-
-    if (location.pathname === "/contact") {
-      document.getElementById("contact")?.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  }, [location.pathname]);
   return (
     <section className="home-container">
       <header className="container" id="home">
@@ -90,9 +61,9 @@ const Home = () => {
             collection of mouth-watering vegan recipes that prove healthy eating
             never tasted so good.
           </p>
-          <Link to="/about">
+          <a href="#about">
             <button className="global-btn">Learn More</button>
-          </Link>
+          </a>
         </div>
         <div className="hero-img">
           <img
@@ -141,7 +112,7 @@ const Home = () => {
 
         <form
           onSubmit={handleSubmit}
-          action="mailto:customercare@adlifesoy.co.za"
+
         >
           <div className="form-content">
             <div className="form-control">

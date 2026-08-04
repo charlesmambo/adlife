@@ -113,7 +113,9 @@ label {
 .ctc-btn {
   width: 100%;
 }
-
+.hero-img img {
+    rotate: -73deg;
+}
 .local {
   display: flex;
   align-items: center;

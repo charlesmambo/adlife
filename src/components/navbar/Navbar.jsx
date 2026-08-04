@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/adlife-logo.svg";
-import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseCircleOutline } from "react-icons/io5";
 
@@ -21,23 +20,23 @@ const Navbar = () => {
   return (
     <nav className="navbar-container">
       {/* Logo */}
-      <Link to="/">
+      <a href="#home">
         <img src={logo} alt="adlife logo" className="logo" loading="lazy" />
-      </Link>
+      </a>
 
       {/* Desktop Links */}
       <ul className="nav-links">
         <li>
-          <Link to="/">Home</Link>
+          <a href="#home">Home</a>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <a href="#about">About Us</a>
         </li>
       </ul>
 
-      <Link to="/contact">
+      <a href="#contact">
         <button className="global-btn nav-links">Contact Us</button>
-      </Link>
+      </a>
 
       {/* Hamburger Icon */}
       <div className="harmburger" onClick={toggleMobileNav}>
@@ -48,22 +47,22 @@ const Navbar = () => {
       <div className={`mobile-nav ${isMobileNavOpen ? "open" : ""}`}>
         <ul className="mobile-links">
           <li>
-            <Link to="/" onClick={closeMobileNav}>
+            <a href="#home" onClick={closeMobileNav}>
               Home
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/about" onClick={closeMobileNav}>
+            <a href="#about" onClick={closeMobileNav}>
               About Us
-            </Link>
+            </a>
           </li>
         </ul>
 
-        <Link to="/contact">
+        <a href="#contact">
           <button className="global-btn" onClick={closeMobileNav}>
             Contact Us
           </button>
-        </Link>
+        </a>
 
         <IoCloseCircleOutline className="close-icon" onClick={closeMobileNav} />
       </div>
